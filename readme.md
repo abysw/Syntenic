@@ -1,6 +1,8 @@
+### 本流程包括：两两物种基因共线性分析，多物种基因组共线性分析（无基因信息），多物种基因共线性分析（基于基因注释信息，本说明亦属于此类）
 ### 本流程说明中介绍的是处理在特定的物种集（本例68个）中特定基因（本例235个）的共线性（块）的分析，其他脚本未做说明。
 ### 本流程徐结合唐海宝老师的jcvi python包使用
 ### 本流程为perl 和 python2 编写
+### 欢迎关注blog https://www.cnblogs.com/abysw/p/13832677.html ，博客介绍了三类共线性分析方法。
 
 ##### mkdir 00.data # prepare gff and cds files in 00.data dirctory
 ##### mkdir 01.last-v1.0.10
