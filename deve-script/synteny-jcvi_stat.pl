@@ -1,17 +1,17 @@
 #!/usr/bin/perl -w
 =head1 Name
-    /hwfssz1/ST_AGRIC/LOCAL/Pipline/Perl-pipline.1.0/06.synteny/bin/synteny-jcvi_stat.pl
+    synteny-jcvi_stat.pl
 Info
     Version Perl-pipline.1.0
-    Author: st_agric (FuYuan), fuyuan@genomics.cn
+    Author: Yuan-SW-F, yuanswf@163.com
     Created Time: 2018-05-04 10:06:43
-    Created Version: /hwfssz1/ST_AGRIC/LOCAL/Pipline/Perl-pipline.1.0/06.synteny/bin/synteny-jcvi_stat.pl
+    Created Version: synteny-jcvi_stat.pl
 Usage
-    /hwfssz1/ST_AGRIC/LOCAL/Pipline/Perl-pipline.1.0/06.synteny/bin/synteny-jcvi_stat.pl	
+    synteny-jcvi_stat.pl	
 =cut
 use strict;
 use feature qw(say);
-use lib '/home/st_agric/lib';
+#use lib '/home/***/lib';
 use agric;
 use Getopt::Long;
 my ($help);
