@@ -1,0 +1,1 @@
+for i in `ls *xls`;do python2 block-t3.py $i | sh
