@@ -3,7 +3,7 @@
     synteny-jcvi_stat.pl
 Info
     Version Perl-pipline.1.0
-    Author: st_agric (FuYuan), fuyuan@genomics.cn
+    Author: Yuan-SW-F, yuanswf@163.com
     Created Time: 2018-05-04 10:06:43
     Created Version: synteny-jcvi_stat.pl
 Usage
