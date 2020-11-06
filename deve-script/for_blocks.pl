@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 =head1 Name
-    /hwfssz1/ST_AGRIC/LOCAL/Pipline/Perl-pipline.1.0/06.synteny/bin/for_blocks.pl
+    for_blocks.pl
 Info
     Version Perl-pipline.1.0
-    Author: st_agric (FuYuan), fuyuan@genomics.cn
+    Author: Yuan-SW-F, yuanswf@163.com
     Created Time: 2018-05-08 17:14:57
     Created Version: for_blocks.pl
 Usage
