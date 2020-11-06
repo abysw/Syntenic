@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-# Author: fuyuan (907569282@qq.com)
+# Author: Yuan-SW-F, yuanswf@163.com
 # Created Time: 2019-06-24 09:55:14
 # Example python blocks_gene.py gene.list Medicago_truncatula.bed . Medicago_truncatula sp.list
 import sys, os, re
