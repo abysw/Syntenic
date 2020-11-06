@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 =head1 Name
-    /hwfssz1/ST_AGRIC/LOCAL/Pipline/Perl-pipline.1.0/06.synteny/bin/4dtv_shell.pl
+    4dtv_shell.pl
 Info
     Version Perl-pipline.1.0
-    Author: st_agric (FuYuan), fuyuan@genomics.cn
+    Author: Yuan-SW-F, yuanswf@163.com
     Created Time: 2018-04-07 23:04:13
     Created Version: 4dtv_shell.pl
 Usage
@@ -11,7 +11,7 @@ Usage
 =cut
 use strict;
 use feature qw(say);
-use lib '/home/st_agric/lib';
+#use lib '/home/***/lib';
 use agric;
 use Getopt::Long;
 my ($help);
@@ -48,9 +48,6 @@ if (@pep == 2){
 my ($spg1,$spg2)=($spe1,$spe2);
 $spg1=~s/\_gene/\_genome.fa/;
 $spg2=~s/\_gene/\_genome.fa/;
-
-#`/hwfssz1/ST_AGRIC/USER/heshixu/Program/script/comparative_genomics/chainNet_v2/faSize $spg1 -detailed |sort -k2,2nr |sed -n \'1,50p\' >$sp1.size`;
-#`/hwfssz1/ST_AGRIC/USER/heshixu/Program/script/comparative_genomics/chainNet_v2/faSize $spg2 -detailed |sort -k2,2nr |sed -n \'1,50p\' >$sp2.size`;
 
 output("config.ini","#configuration file
 spec_A=$sp1
@@ -113,10 +110,10 @@ scale=0.01
 Graph_type=histogram
 ");
 output("plot_4dtv.sh","# fa-size
-/hwfssz1/ST_AGRIC/USER/heshixu/Program/script/comparative_genomics/chainNet_v2/faSize $spg1 -detailed |sort -k2,2nr |sed -n \'1,50p\' >$sp1.size;
-/hwfssz1/ST_AGRIC/USER/heshixu/Program/script/comparative_genomics/chainNet_v2/faSize $spg2 -detailed |sort -k2,2nr |sed -n \'1,50p\' >$sp2.size;
-perl /hwfssz1/ST_AGRIC/LOCAL/Pipline/Perl-pipline.1.0/06.synteny/bin/get_gene-pair.pl $file
-perl /hwfssz1/ST_AGRIC/USER/chenlei/software/P-genome/bin/P-genome config.ini
+faSize $spg1 -detailed |sort -k2,2nr |sed -n \'1,50p\' >$sp1.size;
+faSize $spg2 -detailed |sort -k2,2nr |sed -n \'1,50p\' >$sp2.size;
+get_gene-pair.pl $file
+P-genome config.ini
 ");
 chdir "..";
 ######################### Sub Routines #########################
