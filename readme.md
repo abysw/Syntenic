@@ -1,14 +1,12 @@
-### 本流程说明中介绍的是处理在特定的物种集（本例68个）中特定基因（本例235个）的共线性（块）的分析，其他脚本未做说明。
-### 本流程徐结合唐海宝老师的jcvi python包使用
-### 本流程为perl 和 python2 编写
+## 本流程说明中介绍的是处理在特定的物种集（本例68个）中特定基因（本例235个）的共线性（块）的分析，其他脚本未做说明。
+## 本流程徐结合唐海宝老师的jcvi python包使用
+## 本流程为perl 和 python2 编写
 
-mkdir 00.data
-# prepare gff and cds files in 00.data dirctory
-mkdir 01.last-v1.0.10
-cd 01.last-v1.0.10
-ls `pwd`/../00.data/*cds | perl -ne 'chomp;print $_."\ ";' | perl -ne '@l=split; for $i(@l){print "perl Synteny/script/synteny-jcvi.shell.pl ../00.data/Medicago_truncatula.cds $i \n"}'
-for i in `ls */*1.sh`;do echo $i | perl -ne '/(\S+)\/(\S+)/; print "sleep 30s; cd `pwd`/$1; nohup  sh $2 &\n"'; done
-# get the anchors files (Syntenic blocks and links)
+# mkdir 00.data # prepare gff and cds files in 00.data dirctory
+# mkdir 01.last-v1.0.10
+# cd 01.last-v1.0.10
+# ls `pwd`/../00.data/*cds | perl -ne 'chomp;print $_."\ ";' | perl -ne '@l=split; for $i(@l){print "perl Synteny/script/synteny-jcvi.shell.pl ../00.data/Medicago_truncatula.cds $i \n"}'
+# for i in `ls */*1.sh`;do echo $i | perl -ne '/(\S+)\/(\S+)/; print "sleep 30s; cd `pwd`/$1; nohup  sh $2 &\n"'; done    # get the anchors files (Syntenic blocks and links)
 cd ..
 mkdir 02.anchor
 cp ../01.anchor/*anchors .
