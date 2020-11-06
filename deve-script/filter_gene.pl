@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 =head1 Name
-    /hwfssz1/ST_AGRIC/LOCAL/Pipline/Perl-pipline.1.0/06.synteny/bin/filter_gene.pl
+    filter_gene.pl
 Info
     Version Perl-pipline.1.0
-    Author: st_agric (FuYuan), fuyuan@genomics.cn
+    Author: Yuan-SW-F, yuanswf@163.com
     Created Time: 2018-04-17 16:45:24
     Created Version: filter_gene.pl
 Usage
@@ -11,7 +11,7 @@ Usage
 =cut
 use strict;
 use feature qw(say);
-use lib '/home/st_agric/lib';
+#use lib '/home/***/lib';
 use agric;
 use Getopt::Long;
 my ($num,$help);
@@ -23,7 +23,7 @@ $num||=10;
 die opth() if $help;
 
 #my $pipath=path("Perl-pipline.1.0"); #$pipath/script/config.txt
-open IN,shift;#Annona_senegalensis_gene-Annona_senegalensis_gene.collinearity
+open IN,shift;#*.collinearity
 
 $/="## A";
 my $head=<IN>;
