@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 =head1 Name
-    /hwfssz1/ST_AGRIC/LOCAL/Pipline/Perl-pipline.1.0/06.synteny/bin/synteny-jcvi.shell.pl
+    synteny-jcvi.shell.pl
 Info
     Version Perl-pipline.1.0
-    Author: st_agric (FuYuan), fuyuan@genomics.cn
+    Author: Yuan-SW-F, yuanswf@163.com
     Created Time: 2018-04-27 16:00:15
     Created Version: synteny-jcvi.shell.pl
 Usage
@@ -11,7 +11,7 @@ Usage
 =cut
 use strict;
 use feature qw(say);
-use lib '/home/st_agric/lib';
+#use lib '/home/***/lib';
 use agric;
 use Getopt::Long;
 my ($help,$force,$second,$sp1,$sp2,$cds1,$cds2,$gff1,$gff2,$out,$minspan);
@@ -31,7 +31,7 @@ GetOptions(
 $cds1||=shift;
 $cds2||=shift;
 $minspan||=30;
-my $bin="/public/agis/chengshifeng_group/fuyuan/pip-fuyuan/06.synteny/script";
+my $bin="synteny/script";
 die "please prepare the cds files\nor run python -m jcvi.apps.fetch phytozome sp1,sp2" if -z $cds1;
 die "please prepare the cds files\nor run python -m jcvi.apps.fetch phytozome sp1,sp2" if -z $cds2;
 $cds1="./$cds1" if $cds1!~/^\//;
@@ -66,7 +66,7 @@ die opth() if $help;
 
 output("$out/synteny-jcvi-setp1.sh","#!/bin/bash
 source ~/.bashrc
-export PATH=/public/agis/chengshifeng_group/fuyuan/pip-fuyuan/local/bin:\$PATH
+export PATH=/local/bin:\$PATH
 export PATH=/public/software/gcc-6.4.0/bin:\$PATH
 export LD_LIBRARY_PATH=/public/software/gcc-6.4.0/lib64:\$LD_LIBRARY_PATH
 #python -m jcvi.apps.fetch phytozome $sp1,$sp2
