@@ -1,7 +1,8 @@
 #!/usr/bin/perl -w
 =head1 Info
-    Script Author  : fuyuan, 907569282@qq.com
+    Script Author  : Yuan-SW-F, yuanswf@163.com
     Created Time   : 2020-07-09 13:00:47
+    please prepare anchorNanme.list first
     Example: anch.pl sorted_alignment_file
 =cut
 use strict;
@@ -39,15 +40,7 @@ for my $i (@ref){
 my $e;
 my $k = 90;
 my $nnn = shift;
-@ref = qw(Wheat_tfour.chr7B
-Whear_chinese.chr7B_AABBDD
-Wheat_cstwo.Chr7B
-Wheat_Jagger.chr7B_Jagger 
-Wheat_Norin61.chr7B_norin61
-Wheat_Landmark.chr7B_landmark
-Wheat_julius.chr7B_julius 
-Wheat_lancer.chr7B_lancer Wheat_mace.chr7B_mace Wheat_spelt.chr7B_spelt
-Wheat_SYMattis.chr7B_symattis Wheat_Stanley.chr7B_stanley);
+@ref = split /\s+/,`cat anchorNanme.list`;
 $nnn ||= $#ref+1;
 for (0..$nnn-1){
 	say O3 "0.65, 0.$k,        0, left, center,       m,     1,       $ref[$_]";
