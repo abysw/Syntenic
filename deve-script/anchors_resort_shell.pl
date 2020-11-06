@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 =head1 Name
-    /hwfssz1/ST_AGRIC/LOCAL/Pipline/Perl-pipline.1.0/06.synteny/bin/anchors_resort_shell.pl
+    anchors_resort_shell.pl
 Info
     Version Perl-pipline.1.0
-    Author: st_agric (FuYuan), fuyuan@genomics.cn
+    Author: Yuan-SW-F, yuanswf@163.com
     Created Time: 2018-04-28 16:41:29
     Created Version: anchors_resort_shell.pl
 Usage
@@ -11,7 +11,7 @@ Usage
 =cut
 use strict;
 use feature qw(say);
-use lib '/home/st_agric/lib';
+#use lib '/home/***/lib';
 use agric;
 use Getopt::Long;
 my ($unknown,$block,$num,$bed1,$bed2,$anch,$change,$help);
