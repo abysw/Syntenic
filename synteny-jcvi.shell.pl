@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 =head1 Name
-    /hwfssz1/ST_AGRIC/LOCAL/Pipline/Perl-pipline.1.0/06.synteny/bin/synteny-jcvi.shell.pl
+    synteny-jcvi.shell.pl
 Info
     Version Perl-pipline.1.0
-    Author: st_agric (FuYuan), fuyuan@genomics.cn
+    Author: Yuan-SW-F, yuanswf@163.com
     Created Time: 2018-04-27 16:00:15
     Created Version: synteny-jcvi.shell.pl
 Usage
@@ -11,7 +11,7 @@ Usage
 =cut
 use strict;
 use feature qw(say);
-use lib '/home/st_agric/lib';
+#use lib '/home/***/lib';
 use agric;
 use Getopt::Long;
 my ($help,$force,$second,$sp1,$sp2,$cds1,$cds2,$gff1,$gff2,$out,$minspan);
@@ -31,7 +31,7 @@ GetOptions(
 $cds1||=shift;
 $cds2||=shift;
 $minspan||=30;
-my $bin="/public/agis/chengshifeng_group/fuyuan/pip-fuyuan/06.synteny/script";
+my $bin="path/Sytenic/";
 die "please prepare the cds files\nor run python -m jcvi.apps.fetch phytozome sp1,sp2" if -z $cds1;
 die "please prepare the cds files\nor run python -m jcvi.apps.fetch phytozome sp1,sp2" if -z $cds2;
 $cds1="./$cds1" if $cds1!~/^\//;
@@ -66,7 +66,7 @@ die opth() if $help;
 
 output("$out/synteny-jcvi-setp1.sh","#!/bin/bash
 source ~/.bashrc
-export PATH=/public/agis/chengshifeng_group/fuyuan/pip-fuyuan/local/bin:\$PATH
+export PATH=/public/pip-yuan/local/bin:\$PATH
 export PATH=/public/software/gcc-6.4.0/bin:\$PATH
 export LD_LIBRARY_PATH=/public/software/gcc-6.4.0/lib64:\$LD_LIBRARY_PATH
 #python -m jcvi.apps.fetch phytozome $sp1,$sp2
@@ -80,7 +80,7 @@ python -m jcvi.compara.catalog ortholog $sp1 $sp2 > ../synteny.log");
 
 output("$out/synteny-jcvi.sh","#!/bin/bash
 source ~/.bashrc
-export PATH=/public/agis/chengshifeng_group/fuyuan/pip-fuyuan/local/bin:\$PATH
+export PATH=/public/yuan/local/bin:\$PATH
 export PATH=/public/software/gcc-6.4.0/bin:\$PATH
 export LD_LIBRARY_PATH=/public/software/gcc-6.4.0/lib64:\$LD_LIBRARY_PATH
 #python -m jcvi.apps.fetch phytozome $sp1,$sp2
@@ -95,16 +95,16 @@ python -m jcvi.graphics.dotplot $sp1.$sp2.anchors
 python -m jcvi.compara.synteny depth --histogram $sp1.$sp2.anchors
 python -m jcvi.compara.synteny screen --minspan=$minspan --simple $sp1.$sp2.anchors $sp1.$sp2.anchors.new
 ### sort
-perl $bin/anchors_resort_shell.pl --num 30 --bed1 $sp1.bed --bed2 $sp2.bed --anch $sp1.$sp2.anchors $change -b 
+anchors_resort_shell.pl --num 30 --bed1 $sp1.bed --bed2 $sp2.bed --anch $sp1.$sp2.anchors $change -b 
 python -m jcvi.graphics.dotplot $sp1\_s1.$sp2\_s2.anchors --nosort
 mv $sp1\_s1.$sp2\_s2.pdf $sp1\_s1.$sp2\_s2-b.pdf
-perl /hwfssz1/ST_AGRIC/LOCAL/Pipline/Perl-pipline.1.0/06.synteny/bin/anchors_resort_shell.pl --num 30 --bed1 $sp1.bed --bed2 $sp2.bed --anch $sp1.$sp2.anchors $change 
+anchors_resort_shell.pl --num 30 --bed1 $sp1.bed --bed2 $sp2.bed --anch $sp1.$sp2.anchors $change 
 python -m jcvi.graphics.dotplot $sp1\_s1.$sp2\_s2.anchors --nosort
 mv $sp1\_s1.$sp2\_s2.pdf $sp1\_s1.$sp2\_s2-l.pdf
 python -m jcvi.graphics.dotplot $sp1\-1.$sp2\-2.anchors --nosort
 python -m jcvi.graphics.karyotype seqids layout
 cp *pdf ..
-perl $bin/synteny-jcvi_stat.pl synteny.log
+synteny-jcvi_stat.pl synteny.log
 python -m jcvi.compara.synteny mcscan $sp1.bed $sp1.$sp2.lifted.anchors --iter=1 -o $sp1.$sp2.i1.blocks
 head -50 $sp1.$sp2.i1.blocks > blocks
 #blocks.layout   ### fill in 
@@ -120,10 +120,10 @@ python -m jcvi.graphics.dotplot $sp1.$sp2.anchors
 python -m jcvi.compara.synteny depth --histogram $sp1.$sp2.anchors
 python -m jcvi.compara.synteny screen --minspan=$minspan --simple $sp1.$sp2.anchors $sp1.$sp2.anchors.new
 ### sort
-perl $bin/anchors_resort_shell.pl --num 30 --bed1 $sp1.bed --bed2 $sp2.bed --anch $sp1.$sp2.anchors $change -b
+anchors_resort_shell.pl --num 30 --bed1 $sp1.bed --bed2 $sp2.bed --anch $sp1.$sp2.anchors $change -b
 python -m jcvi.graphics.dotplot $sp1\_s1.$sp2\_s2.anchors --nosort
 mv $sp1\_s1.$sp2\_s2.pdf $sp1\_s1.$sp2\_s2-b.pdf
-perl $bin/anchors_resort_shell.pl --num 30 --bed1 $sp1.bed --bed2 $sp2.bed --anch $sp1.$sp2.anchors $change
+anchors_resort_shell.pl --num 30 --bed1 $sp1.bed --bed2 $sp2.bed --anch $sp1.$sp2.anchors $change
 python -m jcvi.graphics.dotplot $sp1\_s1.$sp2\_s2.anchors --nosort
 mv $sp1\_s1.$sp2\_s2.pdf $sp1\_s1.$sp2\_s2-l.pdf
 python -m jcvi.graphics.dotplot $sp1\-1.$sp2\-2.anchors --nosort
@@ -134,7 +134,7 @@ cp $sp1\_s1.$sp2\_s2-b.pdf ../$sp1\_s1.$sp2\_s2-b-fin.pdf
 cp $sp1\_s1.$sp2\_s2-l.pdf ../$sp1\_s1.$sp2\_s2-l-fin.pdf
 
 python -m jcvi.graphics.karyotype seqids ../layout
- perl $bin/synteny-jcvi_stat.pl synteny.log2
+synteny-jcvi_stat.pl synteny.log2
 ");
 #output("$out/synteny-jcvi2.sh", if $second;
 output("$out/layout","# y, xstart, xend, rotation, color, label, va,  bed
