@@ -5,8 +5,8 @@
 # mkdir 00.data # prepare gff and cds files in 00.data dirctory
 # mkdir 01.last-v1.0.10
 # cd 01.last-v1.0.10
-# ls `pwd`/../00.data/*cds | perl -ne 'chomp;print $_."\ ";' | perl -ne '@l=split; for $i(@l){print "perl Synteny/script/synteny-jcvi.shell.pl ../00.data/Medicago_truncatula.cds $i \n"}'
-# for i in `ls */*1.sh`;do echo $i | perl -ne '/(\S+)\/(\S+)/; print "sleep 30s; cd `pwd`/$1; nohup  sh $2 &\n"'; done    # get the anchors files (Syntenic blocks and links)
+$ ls `pwd`/../00.data/*cds | perl -ne 'chomp;print $_."\ ";' | perl -ne '@l=split; for $i(@l){print "perl Synteny/script/synteny-jcvi.shell.pl ../00.data/Medicago_truncatula.cds $i \n"}'
+$ for i in `ls */*1.sh`;do echo $i | perl -ne '/(\S+)\/(\S+)/; print "sleep 30s; cd `pwd`/$1; nohup  sh $2 &\n"'; done    # get the anchors files (Syntenic blocks and links)
 cd ..
 mkdir 02.anchor
 cp ../01.anchor/*anchors .
